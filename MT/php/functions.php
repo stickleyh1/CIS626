@@ -1,19 +1,19 @@
 <?php
 
-/*
-//removes all unsafe formatting and whitespace
-//@param $field - form field
-*/
+/**
+ * removes all unsafe formatting and whitespace
+ * @param $field - form field
+ */
 function formatInput($field)
 {
     return htmlspecialchars(stripslashes(trim($field)));
 }
     
-/*  
-//  Validates non-blank input
-//  Sets blank input to zero
-//  @param $field - form field
-*/
+/**
+ * Validates non-blank input
+ * Sets blank input to zero
+ * @param $field - form field
+ */
 function validateInput($field, $type)
 {
     if ($type == 'string') {
@@ -24,24 +24,26 @@ function validateInput($field, $type)
     }
 }
 
-/*  
-//  Checks if variable is set, if not returns correct blank value for type
-//  @param $field - form field
-//  @param $type - type of data (e.g. number, string)
-*/
+/**
+ * Checks if variable is set, if not returns correct blank value for type
+ * @param $field - form field
+ * @param $type - type of data (e.g. number, string)
+ */
 function isSetHandler($field, $type)
 {
     if ($type == 'number') {
         return isset($field) ? validateInput($field, $type) : 0;
     } elseif ($type == 'string') {
         return isset($field) ? validateInput($field, $type) : "";
+    } elseif ($type == '' || $type == 'bool'){
+        return isset($field);
     }
 }
 
-/*
-// Reads a given file and returns an array
-// @param $filename - the file to read
-// @param $delim - the file's delimiter
+/**
+ * Reads a given file and returns an array
+ * @param $filename - the file to read
+ * @param $delim - the file's delimiter
 */
 function readFileToArr($filename, $delim){
     $fileArray = [];
@@ -52,13 +54,15 @@ function readFileToArr($filename, $delim){
       exit;
     }
     while (!feof($fp)) {
-      $order= explode("".$delim,fgets($fp));
-      if($order[0] == ""){
+      $line= explode("".$delim,fgets($fp));
+      if($line[0] == ""){
         continue;
       } 
-      array_push($fileArray, $order);
+      array_push($fileArray, $line);
     }
     flock($fp, LOCK_UN); // release read lock
     fclose($fp); 
     return $fileArray;
 }
+
+?>

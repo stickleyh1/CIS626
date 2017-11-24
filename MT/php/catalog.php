@@ -30,8 +30,8 @@
             </thead>
             <tbody>
                 <?php 
-                $files = readFileToArr('catalog.csv', ',');
-                foreach ($files as $book) {
+                $books = readFileToArr('catalog.csv', ',');
+                foreach ($books as $book) {
                 ?>
                 <tr>
                     <th><?php echo $book[3] == ""? 'Unlisted': $book[3] ?></th>

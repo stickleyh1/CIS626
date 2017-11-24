@@ -27,6 +27,6 @@ body{
 	z-index: 1;
 }
 
-#catalog_filter{
+#catalog_filter, #results_filter{
 	display: none;
 }
