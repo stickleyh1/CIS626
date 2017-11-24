@@ -5,7 +5,7 @@
 	height:	40px;
 }
 
-.topBar, .nav-item{
+.topBar, .nav-item, .fa-bars{
 	color: #e1e8ff
 }
 .topBar:hover, .nav-item:hover{
