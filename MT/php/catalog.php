@@ -7,14 +7,11 @@
         </script>
     </head>
   <body>
-    <div class="header">
-        <img src="../images/logo.png"/>
-        <h1>Library Catalog</h1>
-    </div>
+    <!-- Include navbar -->
+    <?php require('../navbar.html'); ?>
     <!-- Content Container -->
     <div class="container">
-        <!-- Search Button to replace built-in search bar -->
-        <a id="searchBtn" href="search.php"><button class="btn btn-primary btn-sm tableBtn">Search</button></a>
+        <h2>Catalog Listing</h2>
         <!-- Table to display full listing -->
         <table id="catalog" class="display" cellspacing="0" width="100%">
             <thead>

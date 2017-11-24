@@ -7,12 +7,11 @@
         </script>
     </head>
   <body>
-    <div class="container header">
-        <img src="../images/logo.png"/>
-        <h1>Library Search</h1>
-    </div>
+    <!-- Include navbar -->
+    <?php require('../navbar.html'); ?>
     <!-- Content Container -->
     <div class="container">
+        <h2>Catalog Search</h2>
         <!-- Form for searching file -->
         <form id="searchForm" action="search.php" method="POST">
             <div class="row">
@@ -40,8 +39,6 @@
                 // Display table if there are results
                 if(count($filteredBooks) != 0){
         ?>
-                    <!-- Search Button to replace built-in search bar -->
-                    <a id="homeBtn" href="catalog.php"><button class="btn btn-primary btn-sm tableBtn">Home</button></a>
                     <table id="results" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>

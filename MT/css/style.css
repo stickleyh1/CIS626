@@ -1,5 +1,15 @@
-img {
-	height: 100px;
+.logo {
+	/* height: 100px; */
+	border-radius: 5px;
+	width: 40px; 
+	height:	40px;
+}
+
+.topBar, .nav-item, .fa-bars{
+	color: #e1e8ff
+}
+.topBar:hover, .nav-item:hover{
+	color: #7df3cc;
 }
 
 body{
@@ -17,7 +27,6 @@ body{
 
 .header{
 	text-align: center;
-	margin: auto;
 	background: white
 }
 
