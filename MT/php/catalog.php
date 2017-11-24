@@ -11,10 +11,6 @@
         <img src="../images/logo.png"/>
         <h1>Library Catalog</h1>
     </div>
-    
-    <nav class="navbar navbar-inverse bg-primary">
-    <!-- Navbar content -->
-    </nav>
     <!-- Content Container -->
     <div class="container">
         <!-- Search Button to replace built-in search bar -->

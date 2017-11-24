@@ -1,4 +1,4 @@
-<?php require('header.php'); ?>
+<?php require('head.php'); ?>
         <script>
         // Turn table into dataTable
         $(document).ready(function() {
