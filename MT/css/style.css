@@ -21,7 +21,7 @@ body{
 	background: white
 }
 
-#searchBtn {
+.tableBtn {
 	position: absolute;
 	right: 35px;
 	z-index: 1;

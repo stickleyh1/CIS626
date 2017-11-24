@@ -1,23 +1,25 @@
-<?php
-  require("./init.php");
-  require("./functions.php");
-?>
-<!DOCTYPE html>
-<html>
-    <?php require('header.php'); ?>
+<?php require('head.php'); ?>
         <script>
+        // Turn table into dataTable
         $(document).ready(function() {
             $('#catalog').DataTable();
         } );    
         </script>
     </head>
   <body>
-    <div class="container header">
+    <div class="header">
         <img src="../images/logo.png"/>
         <h1>Library Catalog</h1>
     </div>
+    
+    <nav class="navbar navbar-inverse bg-primary">
+    <!-- Navbar content -->
+    </nav>
+    <!-- Content Container -->
     <div class="container">
-        <a id="searchBtn" href="search.php"><button class="btn btn-primary btn-sm">Search</button></a>
+        <!-- Search Button to replace built-in search bar -->
+        <a id="searchBtn" href="search.php"><button class="btn btn-primary btn-sm tableBtn">Search</button></a>
+        <!-- Table to display full listing -->
         <table id="catalog" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -30,7 +32,9 @@
             </thead>
             <tbody>
                 <?php 
+                // Call function to convert file to 2d array
                 $books = readFileToArr('catalog.csv', ',');
+                // Loop through array to output each into table
                 foreach ($books as $book) {
                 ?>
                 <tr>

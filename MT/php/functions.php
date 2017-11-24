@@ -1,7 +1,7 @@
 <?php
 
 /**
- * removes all unsafe formatting and whitespace
+ * Removes all unsafe formatting and whitespace
  * @param $field - form field
  */
 function formatInput($field)
@@ -16,6 +16,7 @@ function formatInput($field)
  */
 function validateInput($field, $type)
 {
+    // If string is non-blank replace escapes with space then format
     if ($type == 'string') {
         return empty($field)? "" : formatInput(preg_replace('/\t|\R/', ' ', $field));
     }
@@ -43,25 +44,32 @@ function isSetHandler($field, $type)
 /**
  * Reads a given file and returns an array
  * @param $filename - the file to read
- * @param $delim - the file's delimiter
+ * @param $delim - the file's delimiter (e.g. csv-',')
 */
 function readFileToArr($filename, $delim){
     $fileArray = [];
+    // Open file for reading
     @$fp = fopen(dirname(__FILE__, 2)."/files/".$filename, 'rb');
     flock($fp, LOCK_SH); // lock file for reading
 
     if (!$fp) {
-      exit;
+        exit;
     }
+
+    // Loop through file til end
     while (!feof($fp)) {
-      $line= explode("".$delim,fgets($fp));
-      if($line[0] == ""){
-        continue;
-      } 
-      array_push($fileArray, $line);
+        // Break line into array based on file delim
+        $line= explode("".$delim,fgets($fp));
+        // Skip if line is blank continue
+        if(count($line) == 0){
+            continue;
+        } 
+        // Add line to array
+        array_push($fileArray, $line);
     }
     flock($fp, LOCK_UN); // release read lock
     fclose($fp); 
+    // Return file in array form
     return $fileArray;
 }
 

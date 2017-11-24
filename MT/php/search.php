@@ -1,11 +1,6 @@
-<?php
-    require("./init.php");
-    require("./functions.php");
-?>
-<!DOCTYPE html>
-<html>
-    <?php require('header.php'); ?>
+<?php require('header.php'); ?>
         <script>
+        // Turn table into dataTable
         $(document).ready(function() {
             $('#results').DataTable();
         } );    
@@ -16,7 +11,9 @@
         <img src="../images/logo.png"/>
         <h1>Library Search</h1>
     </div>
+    <!-- Content Container -->
     <div class="container">
+        <!-- Form for searching file -->
         <form id="searchForm" action="search.php" method="POST">
             <div class="row">
                 <div class="col-sm-6 offset-sm-2"><input class="form-control" type="text" id="filter" name="filter" placeholder="Seach input"/></div>
@@ -26,31 +23,38 @@
         <br/>
         <?php
         $noResults = false;
+        // Check if data is posted
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            // Check if filter is blank
             if(isSetHandler($_POST['filter'], 'bool') && $_POST['filter'] != ''){
                 $filter = $_POST['filter'];
                 $filteredBooks = [];
+                // Call function to convert file to 2d array
                 $books = readFileToArr('catalog.csv', ',');
+                // Loop through array to filter array based on form input
                 foreach ($books as $book) {
                     if(strpos($book[3], $filter) !== false || strpos($book[1], $filter) !== false || strpos($book[0], $filter) !== false || strpos($book[7], $filter) !== false || strpos($book[6], $filter) !== false){
                         array_push($filteredBooks, $book);
                     }
                 }
+                // Display table if there are results
                 if(count($filteredBooks) != 0){
         ?>
+                    <!-- Search Button to replace built-in search bar -->
+                    <a id="homeBtn" href="catalog.php"><button class="btn btn-primary btn-sm tableBtn">Home</button></a>
                     <table id="results" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Title</th>
                                 <th>Author Name</th>
                                 <th>ISBN</th>
-                                <th>Publication Year</th>
+                                <th>Year</th>
                                 <th>Publisher</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-                            $books = readFileToArr('catalog.csv', ',');
+                            // Loop through filtered array to output into table
                             foreach ($filteredBooks as $book) {
                             ?>
                             <tr>
@@ -71,6 +75,7 @@
                 $noResults = true;
             } 
         } 
+        // If there are no results display message
         if($noResults){
             echo '<div class="col-sm-6 offset-sm-2"><h2>No Results Found</h2></div>';
         }
