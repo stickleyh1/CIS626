@@ -1,0 +1,87 @@
+table.ordersTable {
+	background-color: #807f7f;
+	text-align: center;
+	border-spacing: 0px;
+	margin: auto;
+  }
+  table.ordersTable td, table.ordersTable th {
+	padding: 5px 10px;
+  }
+  table.ordersTable tbody td {
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+  }
+  table.ordersTable tr:nth-child(even) {
+	background: rgb(60, 116, 153);
+  }
+  table.ordersTable thead {
+	background: rgb(60, 116, 153);
+	border-bottom: 10px solid rgb(60, 116, 153);
+  }
+  table.ordersTable thead th {
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: left;
+  }
+
+img {
+	height: 100px;
+}
+
+body{
+	text-align: center;
+}
+
+table.orderForm{
+	margin: auto;
+	background-color: #e4e5ff;
+	border-spacing: 0px;
+}
+
+table.orderForm td{
+	padding: 5px 5px 5px 5px;
+}
+
+table.orderForm thead{
+	background-color: rgb(60, 116, 153);
+	border-spacing: 0px;
+}
+
+table.orderForm th:last-of-type{
+	padding-left: 5px;
+}
+
+table.orderForm tbody td:last-of-type, table.orderForm thead th:last-of-type{
+	text-align: left
+}
+
+table.orderForm tfoot td {
+  font-size: 13px;
+}
+table.orderForm tfoot {
+  text-align: left;
+}
+table.orderForm tfoot input{
+  display: inline-block;
+  color: #FFFFFF;
+  background: rgb(60, 116, 153);
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 0px;
+}
+
+table.orderForm tfoot button{
+	float: right;
+	color: #FFFFFF;
+	background: rgb(180, 64, 29);
+	padding: 2px 8px;
+	border-radius: 5px;
+	border: 0px;
+  }
+
+  table.orderForm tfoot a{
+	color: #FFFFFF;
+	text-decoration: none;
+  }
