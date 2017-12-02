@@ -1,0 +1,41 @@
+--Create Global User
+CREATE USER 'Admin626'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'Admin626'@'localhost';
+
+--Create DB
+CREATE DATABASE Test626;
+
+--Add User to DB with all Privileges
+GRANT ALL PRIVILEGES ON `Test626`.* TO 'Admin626'@'localhost';
+
+--Create Tables in DB
+CREATE TABLE Customers
+( CustomerID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Email VARCHAR(50) NOT NULL,
+  Name VARCHAR(50) NOT NULL,
+  Address VARCHAR(100) not null,
+  City VARCHAR(30) not null
+);
+
+CREATE TABLE Books
+( ISBN VARCHAR(13) NOT NULL PRIMARY KEY,
+  AuthorFirstName VARCHAR(50) NOT NULL,
+  AuthorLastName VARCHAR(50) NOT NULL,
+  Title VARCHAR(100) NOT NULL,
+  Pages INT UNSIGNED NOT NULL,
+  Publisher VARCHAR(100) NOT NULL,
+  PublicationYear YEAR(4) NOT NULL,
+  Topic VARCHAR(50) NOT NULL,
+  Available TINYINT UNSIGNED NOT NULL
+);
+
+CREATE TABLE CustomerBookListing
+( CustomerID INT UNSIGNED NOT NULL,
+  ISBN VARCHAR(13) NOT NULL,
+  CheckedOut TINYINT UNSIGNED NOT NULL,
+  Favorite TINYINT UNSIGNED NOT NULL,
+
+  PRIMARY KEY (CustomerID, ISBN),
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+  FOREIGN KEY (ISBN) REFERENCES Books(ISBN)
+);
