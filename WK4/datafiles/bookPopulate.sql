@@ -1,3 +1,5 @@
+USE `Test626`;
+
 INSERT INTO Books VALUES("0","Brennan","Maning","Abba''s Child",191,"Navpress",1994,"Relationships",1);
 INSERT INTO Books VALUES("1","Arthur","Blessitt","Arthur-A Pilgrim",360,"Blessitt",1985,"Witnessing",1);
 INSERT INTO Books VALUES("2","Frederica","Mathewes-Green","At the Corner of East and Now",279,"Putnam",1999,"Spirituality",1);

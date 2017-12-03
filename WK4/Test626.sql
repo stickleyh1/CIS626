@@ -1,14 +1,14 @@
---Create Global User
-CREATE USER 'Admin626'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'Admin626'@'localhost';
+/*Create Global User*/
+CREATE USER 'Admin626'@'localhost' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON *.* TO 'Admin626'@'localhost' IDENTIFIED BY '';
 
---Create DB
+/*Create DB*/
 CREATE DATABASE Test626;
 
---Add User to DB with all Privileges
-GRANT ALL PRIVILEGES ON `Test626`.* TO 'Admin626'@'localhost';
+/*Add User to DB with all Privileges*/
+GRANT ALL PRIVILEGES ON `Test626`.* TO 'Admin626'@'localhost' IDENTIFIED BY '';
 
---Create Tables in DB
+/*Create Tables in DB*/
 CREATE TABLE Customers
 ( CustomerID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   Email VARCHAR(50) NOT NULL,
