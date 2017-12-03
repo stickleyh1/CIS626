@@ -11,10 +11,12 @@ GRANT ALL PRIVILEGES ON `Test626`.* TO 'Admin626'@'localhost' IDENTIFIED BY '';
 /*Create Tables in DB*/
 CREATE TABLE Customers
 ( CustomerID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Username VARCHAR(50) NOT NULL,
   Email VARCHAR(50) NOT NULL,
   Name VARCHAR(50) NOT NULL,
-  Address VARCHAR(100) not null,
-  City VARCHAR(30) not null
+  Address VARCHAR(100) NOT NULL,
+  City VARCHAR(30) NOT NULL,
+  Password VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Books

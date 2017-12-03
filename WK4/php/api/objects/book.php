@@ -26,7 +26,7 @@ class Book{
     
        // select all query
        $query = "SELECT
-                   *
+                   ISBN,CONCAT(AuthorFirstName,' ',AuthorLastName) AS AuthorName,Title,Pages,Publisher,PublicationYear,Topic,Available
                 FROM
                    " . $this->table_name . " b";
     
@@ -133,11 +133,11 @@ class Book{
     
        // select all query
        $query = "SELECT
-                   *
+                   ISBN,CONCAT(AuthorFirstName,' ',AuthorLastName) AS AuthorName,Title,Pages,Publisher,PublicationYear,Topic,Available
                FROM
                    " . $this->table_name . " b
                WHERE
-                   b.ISBN LIKE ? OR b.AuthorLastName LIKE ? OR b.Title LIKE ?";
+                   b.ISBN LIKE ? OR b.AuthorLastName LIKE ? OR b.Title LIKE ? OR b.Topic LIKE ?";
     
        // prepare query statement
        $stmt = $this->conn->prepare($query);
@@ -150,6 +150,7 @@ class Book{
        $stmt->bindParam(1, $keywords);
        $stmt->bindParam(2, $keywords);
        $stmt->bindParam(3, $keywords);
+       $stmt->bindParam(4, $keywords);
     
        // execute query
        $stmt->execute();

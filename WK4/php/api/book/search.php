@@ -35,8 +35,7 @@ if($num>0){
  
         $book_item=array(
             "ISBN" => $ISBN,
-            "AuthorFirstName" => $AuthorFirstName,
-            "AuthorLastName" => $AuthorLastName,
+            "AuthorName" => $AuthorName,
             "Title" => html_entity_decode($Title),
             "Pages" => $Pages,
             "Publisher" => $Publisher,

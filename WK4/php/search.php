@@ -9,8 +9,7 @@
                     ajax: "../php/api/book/search.php?filter="+$('#filter').val(),
                     columns: [
                         { "data": "ISBN" },
-                        { "data": "AuthorFirstName" },
-                        { "data": "AuthorLastName" },
+                        { "data": "AuthorName" },
                         { "data": "Title" },
                         { "data": "Pages" },
                         { "data": "Publisher" },
@@ -43,12 +42,11 @@
             <thead>
                 <tr>
                     <th>ISBN</th>
-                    <th>AuthorFirstName</th>
-                    <th>AuthorLastName</th>
+                    <th>Author Name</th>
                     <th>Title</th>
                     <th>Pages</th>
                     <th>Publisher</th>
-                    <th>PublicationYear</th>
+                    <th>Publication Year</th>
                     <th>Topic</th>
                 </tr>
             </thead>
