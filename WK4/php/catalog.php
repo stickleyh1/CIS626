@@ -1,4 +1,6 @@
-<?php require('head.php'); ?>
+<?php 
+    require('head.php'); 
+?>
         <script>
         // Turn table into dataTable
         $(document).ready(function() {
@@ -15,13 +17,24 @@
                 ],
                 searching: false
             });       
-            
+            <?php
+            if(isset($_GET['loginFailed'])){?>
+                alert('Login Failed');
+                <?php }else if(isset($_GET['registerFailed'])){
+                if($_GET['registerFailed'] == 'username'){ ?>
+                    alert('Username already exists');
+                    <?php }else if($_GET['registerFailed'] == 'email'){?>
+                    alert('Email already exists');
+                    <?php }else{ ?>
+                    alert('Registration Failed');
+            <?php }
+            } ?>
         } );    
         </script>
     </head>
   <body>
     <!-- Include navbar -->
-    <?php require('../navbar.html'); ?>
+    <?php require('./navbar.php'); ?>
     <!-- Content Container -->
     <div class="container">
         <h2>Catalog Listing</h2>

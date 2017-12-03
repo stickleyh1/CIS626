@@ -73,4 +73,13 @@ function readFileToArr($filename, $delim){
     return $fileArray;
 }
 
+/**
+ * Show JavaScript Alert
+ * @param $message - the message to display
+ */
+function showAlert($message){
+    echo '<script language="javascript">';
+    echo 'alert('.$message.')';
+    echo '</script>';
+}
 ?>

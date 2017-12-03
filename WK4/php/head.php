@@ -2,6 +2,11 @@
 // Header to include on html pages
 require("./init.php");
 require("./functions.php");
+
+//API Files
+require("./api/config/database.php");
+require("./api/objects/customer.php");
+require("./api/objects/book.php");
 ?>
 <!DOCTYPE html>
 <html>

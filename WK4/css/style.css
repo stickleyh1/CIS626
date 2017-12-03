@@ -29,3 +29,11 @@ body{
 	text-align: center;
 	background: white
 }
+
+.pull-right{
+	float:right;
+}
+
+.dropdown-toggle:hover{
+	text-decoration: none;
+}

@@ -26,7 +26,7 @@
     </head>
   <body>
     <!-- Include navbar -->
-    <?php require('../navbar.html'); ?>
+    <?php require('./navbar.php'); ?>
     <!-- Content Container -->
     <div class="container">
         <h2>Catalog Search</h2>
