@@ -27,7 +27,7 @@ class Book{
        // select all query
        $query = "SELECT
                    *
-               FROM
+                FROM
                    " . $this->table_name . " b";
     
        // prepare query statement

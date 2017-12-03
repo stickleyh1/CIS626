@@ -23,7 +23,7 @@ if($num>0){
  
     // books array
     $books_arr=array();
-    $books_arr["records"]=array();
+    $books_arr["data"]=array();
  
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -42,7 +42,7 @@ if($num>0){
             "Available" => $Available,
         );
  
-        array_push($books_arr["records"], $book_item);
+        array_push($books_arr["data"], $book_item);
     }
  
     echo json_encode($books_arr);

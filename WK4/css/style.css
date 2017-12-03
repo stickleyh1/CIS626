@@ -29,13 +29,3 @@ body{
 	text-align: center;
 	background: white
 }
-
-.tableBtn {
-	position: absolute;
-	right: 35px;
-	z-index: 1;
-}
-
-#catalog_filter, #results_filter{
-	display: none;
-}

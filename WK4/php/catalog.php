@@ -2,7 +2,29 @@
         <script>
         // Turn table into dataTable
         $(document).ready(function() {
-            $('#catalog').DataTable();
+            // var tableData = undefined;
+            // $.ajax({
+            //     url: "http://localhost/CIS626/WK4/php/api/book/read.php",
+            // }).done(function(data){
+            //     tableData = data;
+                
+            // });
+            $('#catalog').DataTable( {
+                ajax: "../php/api/book/read.php",
+                // data: tableData,
+                columns: [
+                    { "data": "ISBN" },
+                    { "data": "AuthorFirstName" },
+                    { "data": "AuthorLastName" },
+                    { "data": "Title" },
+                    { "data": "Pages" },
+                    { "data": "Publisher" },
+                    { "data": "PublicationYear" },
+                    { "data": "Topic" },
+                ],
+                searching: false
+            });       
+            
         } );    
         </script>
     </head>
@@ -16,28 +38,18 @@
         <table id="catalog" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Author Name</th>
                     <th>ISBN</th>
-                    <th>Year</th>
+                    <th>AuthorFirstName</th>
+                    <th>AuthorLastName</th>
+                    <th>Title</th>
+                    <th>Pages</th>
                     <th>Publisher</th>
+                    <th>PublicationYear</th>
+                    <th>Topic</th>
                 </tr>
             </thead>
             <tbody>
-                <?php 
-                // Call function to convert file to 2d array
-                $books = readFileToArr('catalog.csv', ',');
-                // Loop through array to output each into table
-                foreach ($books as $book) {
-                ?>
-                <tr>
-                    <td><?php echo $book[3] == ""? 'Unlisted': $book[3] ?></td>
-                    <td><?php echo ($book[2]== "" && $book[1] == "")? 'Unlisted': $book[2]." ".$book[1] ?></td>
-                    <td><?php echo $book[0] == ""? 'Unlisted': $book[0] ?></td>
-                    <td><?php echo $book[7] == ""? 'Unlisted': $book[7] ?></td>
-                    <td><?php echo $book[6] == ""? 'Unlisted': $book[6] ?></td>
-                </tr>
-                <?php } ?>
+                
             </tbody>
         </table>
     </div>
