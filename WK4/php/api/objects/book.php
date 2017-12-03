@@ -21,14 +21,11 @@ class Book{
         $this->conn = $db;
     }
 
-    // read books
-    function read(){
+    // selectAll books
+    function selectAll(){
     
        // select all query
-       $query = "SELECT
-                   ISBN,CONCAT(AuthorFirstName,' ',AuthorLastName) AS AuthorName,Title,Pages,Publisher,PublicationYear,Topic,Available
-                FROM
-                   " . $this->table_name . " b";
+       $query = "CALL getAllBooks()";
     
        // prepare query statement
        $stmt = $this->conn->prepare($query);
@@ -132,12 +129,7 @@ class Book{
     function search($keywords){
     
        // select all query
-       $query = "SELECT
-                   ISBN,CONCAT(AuthorFirstName,' ',AuthorLastName) AS AuthorName,Title,Pages,Publisher,PublicationYear,Topic,Available
-               FROM
-                   " . $this->table_name . " b
-               WHERE
-                   b.ISBN LIKE ? OR b.AuthorLastName LIKE ? OR b.Title LIKE ? OR b.Topic LIKE ?";
+       $query = "CALL searchBooks(?)";
     
        // prepare query statement
        $stmt = $this->conn->prepare($query);
@@ -148,9 +140,6 @@ class Book{
     
        // bind
        $stmt->bindParam(1, $keywords);
-       $stmt->bindParam(2, $keywords);
-       $stmt->bindParam(3, $keywords);
-       $stmt->bindParam(4, $keywords);
     
        // execute query
        $stmt->execute();

@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $book = new Book($db);
  
 // query books
-$stmt = $book->read();
+$stmt = $book->selectAll();
 $num = $stmt->rowCount();
  
 // check if more than 0 record found

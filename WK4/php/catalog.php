@@ -2,16 +2,8 @@
         <script>
         // Turn table into dataTable
         $(document).ready(function() {
-            // var tableData = undefined;
-            // $.ajax({
-            //     url: "http://localhost/CIS626/WK4/php/api/book/read.php",
-            // }).done(function(data){
-            //     tableData = data;
-                
-            // });
             $('#catalog').DataTable( {
-                ajax: "../php/api/book/read.php",
-                // data: tableData,
+                ajax: "../php/api/book/selectAll.php",
                 columns: [
                     { "data": "ISBN" },
                     { "data": "AuthorName" },
